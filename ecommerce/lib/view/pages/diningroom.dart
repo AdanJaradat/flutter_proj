@@ -1,3 +1,4 @@
+import 'package:ecommerce/view/pages/living_tab/grid_page2.dart';
 import 'package:ecommerce/view/pages/myhome.dart';
 import 'package:flutter/material.dart';
 
@@ -56,115 +57,24 @@ class _DiningroomState extends State<Diningroom>
       body: TabBarView(
         controller: _tabController,
         children: [
-          Center(child: Text('Car Tab Content')),
-          // GridView.builder(
-          //     gridDelegate:
-          //         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          //     itemCount: LivingRoomClass.living['SOFAS'].length,
-          //     itemBuilder: (context, index) {
-          //       return InkWell(
-          //         onTap: () {
-          //           Scaffold.of(context)
-          //               .showBottomSheet((BuildContext context) {
-          //             return Container(
-          //               // margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-          //               height: MediaQuery.of(context).size.height * 0.85,
-          //               width: MediaQuery.of(context).size.width,
-          //               //height: 250,
-          //               color: const Color.fromARGB(255, 218, 217, 217),
-          //               child: Column(
-          //                 children: [
-          //                   SizedBox(height: 20),
-          //                   Image.asset(
-          //                     'images/sofagrid1.jpg',
-          //                     fit: BoxFit.contain,
-          //                     height: MediaQuery.of(context).size.height * 0.3,
-          //                     width: MediaQuery.of(context).size.width * 0.5,
-          //                   ),
-          //                   SizedBox(height: 20),
-          //                   Text(
-          //                       LivingRoomClass.living['SOFAS'][index]['name']),
-          //                   SizedBox(height: 20),
-          //                   Text(
-          //                       LivingRoomClass.living['SOFAS'][index]['desc']),
-          //                   SizedBox(height: 20),
-          //                   Container(
-          //                     child: Row(
-          //                       children: [
-          //                         MaterialButton(
-          //                           onPressed: () {},
-          //                           color: Colors.amber[700],
-          //                           child: Text('Add to cart'),
-          //                         ),
-          //                         Container(
-          //                           decoration: BoxDecoration(
-          //                             shape: BoxShape.circle,
-          //                             color: Colors.amber,
-          //                           ),
-          //                           child: IconButton(
-          //                               onPressed: () {},
-          //                               icon: Icon(Icons.remove)),
-          //                         ),
-          //                         Container(
-          //                             width: 50,
-          //                             height: 50,
-          //                             decoration: BoxDecoration(
-          //                               shape: BoxShape.circle,
-          //                               color: Colors.white,
-          //                             ),
-          //                             child: Center(child: Text('1'))),
-          //                         Container(
-          //                           decoration: BoxDecoration(
-          //                             shape: BoxShape.circle,
-          //                             color: Colors.amber,
-          //                           ),
-          //                           child: IconButton(
-          //                               onPressed: () {},
-          //                               icon: Icon(Icons.add)),
-          //                         ),
-          //                       ],
-          //                     ),
-          //                   )
-          //                 ],
-          //               ),
-          //             );
-          //           });
-          //         },
-          //         child: Card(
-          //           child: Column(
-          //             children: [
-          //               Expanded(
-          //                 flex: 2,
-          //                 child: Image.asset(
-          //                   'images/sofagrid1.jpg',
-          //                   fit: BoxFit.fill,
-          //                   width: 190,
-          //                   height: 120,
-          //                 ),
-          //               ),
-          //               Expanded(
-          //                 child: ListTile(
-          //                   isThreeLine: true,
-          //                   title: Text(
-          //                       LivingRoomClass.living['SOFAS'][index]['name']),
-          //                   subtitle: Text(
-          //                       '${LivingRoomClass.living['SOFAS'][index]['price']} JD'),
-          //                   trailing: IconButton(
-          //                       onPressed: () {}, icon: Icon(Icons.add)),
-          //                 ),
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       );
-          //     }),
-
-          Center(child: Text('Transit Tab Content')),
-          Center(child: Text('Bike Tab Content')),
-          Center(child: Text('Bike Tab Content')),
+          DataGrid2(
+            category: 'TABLE',
+            room: 'Dining Room',
+          ),
+          DataGrid2(
+            category: 'CHAIRS',
+            room: 'Dining Room',
+          ),
+          DataGrid2(
+            category: 'LIGHTING',
+            room: 'Dining Room',
+          ),
+          DataGrid2(
+            category: 'DECOR',
+            room: 'Dining Room',
+          ),
         ],
       ),
     );
   }
-
 }

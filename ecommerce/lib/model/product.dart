@@ -7,6 +7,7 @@ class Product {
   String imgPath;
   String room;
   String category;
+  int count;
   double price;
   //Color color;
   Product({
@@ -15,6 +16,7 @@ class Product {
     required this.imgPath,
     required this.price,
     required this.room,
+    required this.count,
     required this.category,
     //required this.color,
   });

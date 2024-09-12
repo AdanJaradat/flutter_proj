@@ -94,6 +94,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
@@ -137,7 +139,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 icon: Icon(Icons.shopping_cart_outlined)),
           ],
         ),
-        drawer: CustomDrawer(),
+        drawer: CustomDrawer(
+          email: args,
+        ),
         body: _navBtmPages[btmIndex]);
   }
 }

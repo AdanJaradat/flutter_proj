@@ -5,6 +5,20 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 230, 228, 228),
+        ),
+        child: Center(
+          child: MaterialButton(
+            onPressed: () {},
+            color: Colors.amber[700],
+            child: Text('Delete my account'),
+          ),
+        ),
+      ),
+    );
   }
 }

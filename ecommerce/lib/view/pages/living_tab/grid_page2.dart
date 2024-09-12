@@ -8,15 +8,18 @@ class DataGrid2 extends StatelessWidget {
   const DataGrid2({
     Key? key,
     required this.category,
+    required this.room,
   }) : super(key: key);
   final String category;
+  final String room;
 
   @override
   Widget build(BuildContext context) {
+    int count = 0;
     return Container(
       margin: const EdgeInsets.fromLTRB(12, 20, 12, 8),
       child: Consumer<LivingProcess>(builder: (context, value, child) {
-        List<Product> data = value.categoryList(category);
+        List<Product> data = value.categoryList(category, room);
         return GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2),
@@ -54,37 +57,95 @@ class DataGrid2 extends StatelessWidget {
                             child: Row(
                               children: [
                                 MaterialButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Provider.of<LivingProcess>(context,
+                                            listen: false)
+                                        .addItemToCart(data[index]);
+                                    SnackBar snackBar = SnackBar(
+                                      content: Text('Added Successfully'),
+                                      action: SnackBarAction(
+                                          label: 'Cacel',
+                                          onPressed: () {
+                                            ScaffoldMessenger.of(context)
+                                                .clearSnackBars();
+                                          }),
+                                    );
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  },
                                   color: Colors.amber[700],
                                   child: Text('Add to cart'),
                                 ),
-                                const SizedBox(width: 35),
+                                const SizedBox(width: 45),
                                 Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: Colors.amber,
+                                    color: Colors.amber[700],
                                   ),
                                   child: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        // count = Provider.of<LivingProcess>(
+                                        //         context,
+                                        //         listen: false)
+                                        //     .counter(data[index]);
+                                        Provider.of<LivingProcess>(context,
+                                                listen: false)
+                                            .removeFromCounter(data[index]);
+                                        // SnackBar snackBar = SnackBar(
+                                        //   content: Text('Removed Successfully'),
+                                        //   action: SnackBarAction(
+                                        //       label: 'Cacel',
+                                        //       onPressed: () {
+                                        //         ScaffoldMessenger.of(context)
+                                        //             .clearSnackBars();
+                                        //       }),
+                                        // );
+                                        // ScaffoldMessenger.of(context)
+                                        //     .showSnackBar(snackBar);
+                                      },
                                       icon: Icon(Icons.remove)),
                                 ),
                                 const SizedBox(width: 10),
                                 Container(
-                                    width: 50,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white,
-                                    ),
-                                    child: Center(child: Text('1'))),
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                  child: Center(
+                                    child:
+                                        Text('${value.counter(data[index])}'),
+                                  ),
+                                ),
                                 const SizedBox(width: 10),
                                 Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: Colors.amber,
+                                    color: Colors.amber[700],
                                   ),
                                   child: IconButton(
-                                      onPressed: () {}, icon: Icon(Icons.add)),
+                                      onPressed: () {
+                                        // count = Provider.of<LivingProcess>(
+                                        //         context,
+                                        //         listen: false)
+                                        //     .counter(data[index]);
+                                        Provider.of<LivingProcess>(context,
+                                                listen: false)
+                                            .addToCounter(data[index]);
+                                        // SnackBar snackBar = SnackBar(
+                                        //   content: Text('Added Successfully'),
+                                        //   action: SnackBarAction(
+                                        //       label: 'Cacel',
+                                        //       onPressed: () {
+                                        //         ScaffoldMessenger.of(context)
+                                        //             .clearSnackBars();
+                                        //       }),
+                                        // );
+                                        // ScaffoldMessenger.of(context)
+                                        //     .showSnackBar(snackBar);
+                                      },
+                                      icon: Icon(Icons.add)),
                                 ),
                               ],
                             ),
@@ -124,8 +185,21 @@ class DataGrid2 extends StatelessWidget {
                           trailing: IconButton(
                             onPressed: () {
                               Provider.of<LivingProcess>(context, listen: false)
-                                  .addItemToCart(data[index]);
+                                  .addToCounter(data[index]);
+                              // Provider.of<LivingProcess>(context, listen: false)
+                              //     .addItemToCart(data[index]);
                               //value.addItemToCart(data[index]);
+                              SnackBar snackBar = SnackBar(
+                                content: Text('Added Successfully'),
+                                action: SnackBarAction(
+                                    label: 'Cacel',
+                                    onPressed: () {
+                                      ScaffoldMessenger.of(context)
+                                          .clearSnackBars();
+                                    }),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
                             },
                             icon: Icon(Icons.add),
                           ),

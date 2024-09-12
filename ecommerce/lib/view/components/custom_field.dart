@@ -25,20 +25,22 @@ class CustomField extends StatelessWidget {
       onSaved: onSavedClick,
       controller: controller,
       decoration: InputDecoration(
-          label: Text(
-            '$label',
-            style: TextStyle(color: Colors.grey.shade800),
-          ),
-          prefixIcon: icon,
-          prefixIconColor: Colors.grey.shade800,
-          fillColor: const Color.fromARGB(255, 235, 235, 235),
-          filled: true,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.grey.shade800)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Colors.grey.shade900, width: 2))),
+        label: Text(
+          '$label',
+          style: TextStyle(color: Colors.grey.shade800),
+        ),
+        prefixIcon: icon,
+        prefixIconColor: Colors.grey.shade800,
+        fillColor: const Color.fromARGB(255, 235, 235, 235),
+        filled: true,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: Colors.grey.shade800)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.grey.shade900, width: 2),
+        ),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:ecommerce/model/living_proc.dart';
+import 'package:ecommerce/view/pages/home.dart';
 import 'package:ecommerce/view/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: ((context) => LivingProcess())),
         ],
         child: MaterialApp(
+          routes: {
+            'home': (context) => Home(),
+          },
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(

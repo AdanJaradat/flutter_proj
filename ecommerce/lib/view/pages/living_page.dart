@@ -94,15 +94,19 @@ class _LivingRoom2State extends State<LivingRoom2>
         children: [
           DataGrid2(
             category: 'SOFAS',
+            room: 'Living Room',
           ),
           DataGrid2(
             category: 'TABLE',
+            room: 'Living Room',
           ),
           DataGrid2(
             category: 'RUGS',
+            room: 'Living Room',
           ),
           DataGrid2(
             category: 'DECOR',
+            room: 'Living Room',
           ),
 
           //   Consumer<LivingProcess>(

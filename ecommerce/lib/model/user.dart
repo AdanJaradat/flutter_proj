@@ -35,4 +35,14 @@ class User {
       'gender': 'male'
     },
   ];
+
+  Map getUserByEmail(String e) {
+    //er? user;
+    for (var i = 0; i < users.length; i++) {
+      if (users[i]['email'] == e) {
+        return users[i];
+      }
+    }
+    return {};
+  }
 }

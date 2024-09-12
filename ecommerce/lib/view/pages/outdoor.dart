@@ -1,3 +1,4 @@
+import 'package:ecommerce/view/pages/living_tab/grid_page2.dart';
 import 'package:ecommerce/view/pages/myhome.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _OutdoorState extends State<Outdoor> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
   }
 
   Widget build(BuildContext context) {
@@ -55,12 +56,30 @@ class _OutdoorState extends State<Outdoor> with SingleTickerProviderStateMixin {
       body: TabBarView(
         controller: _tabController,
         children: [
-          Center(child: Text('Car Tab Content')),
-          Center(child: Text('Transit Tab Content')),
-          Center(child: Text('Bike Tab Content')),
-          Center(child: Text('Bike Tab Content')),
-          Center(child: Text('Bike Tab Content')),
-          Center(child: Text('Bike Tab Content')),
+          DataGrid2(
+            category: 'SOFAS',
+            room: 'Out Door',
+          ),
+          DataGrid2(
+            category: 'CHAIRS',
+            room: 'Out Door',
+          ),
+          DataGrid2(
+            category: 'TABLES',
+            room: 'Out Door',
+          ),
+          DataGrid2(
+            category: 'PLANTS',
+            room: 'Out Door',
+          ),
+          DataGrid2(
+            category: 'RUGS',
+            room: 'Out Door',
+          ),
+          DataGrid2(
+            category: 'UMBRELLAS',
+            room: 'Out Door',
+          ),
         ],
       ),
     );

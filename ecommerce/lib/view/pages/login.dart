@@ -97,10 +97,14 @@ class _LoginState extends State<Login> {
                                 }
                               }
                               if (loged) {
-                                Navigator.of(context).pushAndRemoveUntil(
-                                    MaterialPageRoute(
-                                        builder: (context) => Home()),
-                                    (route) => false);
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    'home', (route) => false,
+                                    arguments:
+                                        _emailController.text.toString());
+                                // Navigator.of(context).pushAndRemoveUntil(
+                                //     MaterialPageRoute(
+                                //         builder: (context) => Home()),
+                                //     (route) => false);
 
                                 SnackBar snackBar = SnackBar(
                                   content: Text('Successfully Login'),
