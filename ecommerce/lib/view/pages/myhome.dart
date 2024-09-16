@@ -1,16 +1,18 @@
 import 'dart:async';
 
+import 'package:ecommerce/model/living_proc.dart';
+import 'package:ecommerce/model/product.dart';
 import 'package:ecommerce/view/components/custom_card.dart';
 import 'package:ecommerce/view/pages/bedroom.dart';
 import 'package:ecommerce/view/pages/diningroom.dart';
 import 'package:ecommerce/view/pages/living_page.dart';
-import 'package:ecommerce/view/pages/living_tab/grid_page2.dart';
 import 'package:ecommerce/view/pages/living_tab/search.dart';
 import 'package:ecommerce/view/pages/offers.dart';
 import 'package:ecommerce/view/pages/order.dart';
 import 'package:ecommerce/view/pages/outdoor.dart';
 import 'package:ecommerce/view/pages/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({super.key});
@@ -20,6 +22,7 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
+  bool isSearch = false;
   late PageController _pageController;
   late Timer _timer;
   int currentIndexOfImgSlider = 0;
@@ -90,125 +93,161 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromARGB(255, 240, 239, 239),
-      child: ListView(
-        children: [
-          const SizedBox(height: 10),
-          Container(
-            margin: EdgeInsets.all(8),
-            child: TextFormField(
-              onChanged: (value) {
-                //navigate search page
-              },
-              decoration: InputDecoration(
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search_outlined),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          //!editing
-          Container(
-            child: Column(
-              children: [
-                //!
-                Container(
-                  margin: const EdgeInsets.all(15),
-                  height: 200,
-                  width: MediaQuery.of(context).size.width,
-                  child: PageView.builder(
-                      controller: _pageController,
-                      itemCount: imgUrl.length,
-                      itemBuilder: (context, index) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            imgUrl[currentIndexOfImgSlider],
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }),
-                ),
-                //const SizedBox(height: 3),
-                Center(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    height: MediaQuery.of(context).size.width * 0.1,
-                    child: ListView.builder(
-                        //  controller: _scrollController,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: imgUrl.length,
-                        itemBuilder: (context, index) {
-                          return Center(
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.1,
-                              height: MediaQuery.of(context).size.width * 0.1,
-                              // color: Colors.red,
-                              child: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    currentIndexOfImgSlider = index;
-                                    //activeColor = Colors.grey.shade700;
-                                  });
-                                },
-                                icon: Icon(Icons.circle),
-                                iconSize: 15,
-                                color: activeColor,
-                              ),
-                            ),
-                          );
-                        }),
+    return Consumer<LivingProcess>(builder: (context, value, child) {
+      //value.showSearchResult = [];
+      List<Product> res = [];
+      return Container(
+        color: Color.fromARGB(255, 240, 239, 239),
+        child: ListView(
+          children: [
+            const SizedBox(height: 10),
+            Container(
+              margin: EdgeInsets.all(8),
+              // child: Consumer<LivingProcess>(
+              // builder: (context, value, child) {
+              //   return
+              child: TextFormField(
+                onChanged: (val) {
+                  for (int i = 0; i < value.Products.length; i++) {
+                    if (value.Products[i].category.contains(val) ||
+                        value.Products[i].room.contains(val)) {
+                      value.addToSearch(value.products[i]);
+                      //isSearch = true;
+                    }
+                  }
+                  if (val.isEmpty) {
+                    value.clearSearch();
+                  }
+                  //   res = value.showSearchResult;
+
+                  //isSearch = false;
+                },
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  prefixIcon: const Icon(Icons.search_outlined),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                const SizedBox(height: 30),
-                CustomCard(
-                  imgUrl: 'images/livcard.jpg',
-                  title: 'Living Room',
-                  onTapCard: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LivingRoom2()));
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => LivingRoom()));
-                  },
-                ),
-                const SizedBox(height: 30),
-                CustomCard(
-                  imgUrl: 'images/diningcard.jpg',
-                  title: 'Dining Room',
-                  onTapCard: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Diningroom()));
-                  },
-                ),
-                const SizedBox(height: 30),
-                CustomCard(
-                  imgUrl: 'images/outcard.jpg',
-                  title: 'Out Door',
-                  onTapCard: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Outdoor()));
-                  },
-                ),
-                const SizedBox(height: 30),
-                CustomCard(
-                  imgUrl: 'images/bedcard.jpg',
-                  title: 'Bed Room',
-                  onTapCard: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Bedroom()));
-                  },
-                ),
-              ],
+              ),
+              //  },
+              // child: ,
             ),
-          ),
-        ],
-      ),
-    );
+
+            const SizedBox(height: 10),
+            //!editing
+            value.showSearchResult.isNotEmpty
+                //res.isNotEmpty
+                ? SearchPage()
+                : Container(
+                    child: Column(
+                      children: [
+                        //!
+                        Container(
+                          margin: const EdgeInsets.all(15),
+                          height: 200,
+                          width: MediaQuery.of(context).size.width,
+                          child: PageView.builder(
+                              controller: _pageController,
+                              itemCount: imgUrl.length,
+                              itemBuilder: (context, index) {
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.asset(
+                                    imgUrl[currentIndexOfImgSlider],
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                  ),
+                                );
+                              }),
+                        ),
+                        //const SizedBox(height: 3),
+                        Center(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: MediaQuery.of(context).size.width * 0.1,
+                            child: ListView.builder(
+                                //  controller: _scrollController,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: imgUrl.length,
+                                itemBuilder: (context, index) {
+                                  return Center(
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.1,
+                                      // color: Colors.red,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            currentIndexOfImgSlider = index;
+                                            //activeColor = Colors.grey.shade700;
+                                          });
+                                        },
+                                        icon: Icon(Icons.circle),
+                                        iconSize: 15,
+                                        color: activeColor,
+                                      ),
+                                    ),
+                                  );
+                                }),
+                          ),
+                        ),
+                        const SizedBox(height: 30),
+                        CustomCard(
+                          imgUrl: 'images/livcard.jpg',
+                          title: 'Living Room',
+                          onTapCard: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LivingRoom2()));
+                            // Navigator.push(context,
+                            //     MaterialPageRoute(builder: (context) => LivingRoom()));
+                          },
+                        ),
+                        const SizedBox(height: 30),
+                        CustomCard(
+                          imgUrl: 'images/diningcard.jpg',
+                          title: 'Dining Room',
+                          onTapCard: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Diningroom()));
+                          },
+                        ),
+                        const SizedBox(height: 30),
+                        CustomCard(
+                          imgUrl: 'images/outcard.jpg',
+                          title: 'Out Door',
+                          onTapCard: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Outdoor()));
+                          },
+                        ),
+                        const SizedBox(height: 30),
+                        CustomCard(
+                          imgUrl: 'images/bedcard.jpg',
+                          title: 'Bed Room',
+                          onTapCard: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Bedroom()));
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+          ],
+        ),
+      );
+    });
   }
 }

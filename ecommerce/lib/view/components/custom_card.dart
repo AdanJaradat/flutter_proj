@@ -20,7 +20,8 @@ class CustomCard extends StatelessWidget {
         height: 220,
         width: MediaQuery.of(context).size.width,
         child: Card(
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          //margin: EdgeInsets.symmetric(horizontal: 20),
+          margin: EdgeInsets.fromLTRB(20, 0, 20, 4),
           elevation: 15,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

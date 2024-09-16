@@ -168,6 +168,7 @@ class LivingProcess extends ChangeNotifier {
 
   //user cart
   List<Product> _userCart = [];
+  List<Product> _showSearchResult = [];
 
   //sofa cart
   // List<Product> _sofaCart = [];
@@ -177,6 +178,20 @@ class LivingProcess extends ChangeNotifier {
 
   //get user cart
   List<Product> get userCart => _userCart;
+
+  //get search result
+  List<Product> get showSearchResult => _showSearchResult;
+  set showSearchResult(List<Product> s) => _showSearchResult = s;
+
+  void addToSearch(Product item) {
+    _showSearchResult.add(item);
+    notifyListeners();
+  }
+
+  void clearSearch() {
+    _showSearchResult.clear();
+    notifyListeners();
+  }
 
   //get category list
   List<Product> categoryList(String category, String room) {

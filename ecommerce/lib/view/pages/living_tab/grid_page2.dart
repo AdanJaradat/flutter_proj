@@ -106,17 +106,22 @@ class DataGrid2 extends StatelessWidget {
                                       icon: Icon(Icons.remove)),
                                 ),
                                 const SizedBox(width: 10),
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
-                                  ),
-                                  child: Center(
-                                    child:
-                                        Text('${value.counter(data[index])}'),
-                                  ),
+                                Consumer<LivingProcess>(
+                                  builder: (context, value, child) {
+                                    return Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                            '${value.counter(data[index])}'),
+                                      ),
+                                    );
+                                  },
+                                  //child: ,
                                 ),
                                 const SizedBox(width: 10),
                                 Container(
