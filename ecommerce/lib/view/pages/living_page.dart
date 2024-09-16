@@ -1,6 +1,9 @@
+import 'package:ecommerce/constant.dart';
 import 'package:ecommerce/model/living_proc.dart';
 import 'package:ecommerce/model/livingroom.dart';
 import 'package:ecommerce/model/product.dart';
+import 'package:ecommerce/model/user.dart';
+import 'package:ecommerce/view/pages/home.dart';
 import 'package:ecommerce/view/pages/living_tab/grid_page.dart';
 import 'package:ecommerce/view/pages/living_tab/grid_page2.dart';
 import 'package:ecommerce/view/pages/myhome.dart';
@@ -63,8 +66,10 @@ class _LivingRoom2State extends State<LivingRoom2>
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MyHome()));
+                Navigator.pushNamed(context, 'home',
+                    arguments: (User.currentUser['email']));
+                // Navigator.push(
+                //     context, MaterialPageRoute(builder: (context) => Home()));
               },
               icon: Icon(Icons.home_outlined)),
           IconButton(

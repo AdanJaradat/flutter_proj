@@ -53,8 +53,8 @@ class CustomDrawer extends StatelessWidget {
             title: 'Home',
             icon: Icons.home_outlined,
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
+              Navigator.pushNamed(context, 'home',
+                  arguments: (User.currentUser['email']));
             },
           ),
           const SizedBox(height: 6),
@@ -102,10 +102,7 @@ class CustomDrawer extends StatelessWidget {
           DrawerItem(
             title: 'Rate Our App',
             icon: Icons.star_outline,
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
-            },
+            onTap: () {},
           ),
           const SizedBox(height: 6),
           DrawerItem(
@@ -120,19 +117,13 @@ class CustomDrawer extends StatelessWidget {
           DrawerItem(
             title: 'Privacy Policy',
             icon: Icons.privacy_tip_outlined,
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
-            },
+            onTap: () {},
           ),
           const SizedBox(height: 6),
           DrawerItem(
             title: 'Application Developer',
             icon: Icons.developer_mode_outlined,
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
-            },
+            onTap: () {},
           ),
         ],
       ),

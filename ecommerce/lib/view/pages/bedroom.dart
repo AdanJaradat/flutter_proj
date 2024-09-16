@@ -1,4 +1,4 @@
-import 'package:ecommerce/view/pages/myhome.dart';
+import 'package:ecommerce/model/user.dart';
 import 'package:flutter/material.dart';
 
 class Bedroom extends StatefulWidget {
@@ -26,8 +26,8 @@ class _BedroomState extends State<Bedroom> with SingleTickerProviderStateMixin {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MyHome()));
+                Navigator.pushNamed(context, 'home',
+                    arguments: (User.currentUser['email']));
               },
               icon: Icon(Icons.home_outlined)),
           IconButton(

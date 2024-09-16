@@ -1,3 +1,4 @@
+import 'package:ecommerce/model/user.dart';
 import 'package:ecommerce/view/pages/living_tab/grid_page2.dart';
 import 'package:ecommerce/view/pages/myhome.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +29,8 @@ class _DiningroomState extends State<Diningroom>
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MyHome()));
+                Navigator.pushNamed(context, 'home',
+                    arguments: (User.currentUser['email']));
               },
               icon: Icon(Icons.home_outlined)),
           IconButton(

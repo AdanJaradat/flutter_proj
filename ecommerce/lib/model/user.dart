@@ -12,6 +12,8 @@ class User {
   //   required this.phone,
   //   required this.gender,
   // });
+
+  static Map currentUser = {};
   static List users = [
     {
       'name': 'ahmad',

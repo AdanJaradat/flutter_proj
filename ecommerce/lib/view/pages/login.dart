@@ -1,3 +1,4 @@
+import 'package:ecommerce/constant.dart';
 import 'package:ecommerce/model/user.dart';
 import 'package:ecommerce/view/components/custom_field.dart';
 import 'package:ecommerce/view/pages/home.dart';
@@ -100,7 +101,9 @@ class _LoginState extends State<Login> {
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     'home', (route) => false,
                                     arguments:
-                                        _emailController.text.toString());
+                                        _emailController.text.toString()); //!
+                                User.currentUser = User()
+                                    .getUserByEmail(_emailController.text);
                                 // Navigator.of(context).pushAndRemoveUntil(
                                 //     MaterialPageRoute(
                                 //         builder: (context) => Home()),
