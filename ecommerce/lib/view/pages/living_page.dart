@@ -8,7 +8,6 @@ import 'package:ecommerce/view/pages/living_tab/grid_page.dart';
 import 'package:ecommerce/view/pages/living_tab/grid_page2.dart';
 import 'package:ecommerce/view/pages/myhome.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class LivingRoom2 extends StatefulWidget {
   const LivingRoom2({super.key});
@@ -27,32 +26,32 @@ class _LivingRoom2State extends State<LivingRoom2>
     _tabController = TabController(length: 4, vsync: this);
   }
 
-  String selectTitle([String title = 'Living Room']) {
-    switch (title) {
-      case 'SOFAS':
-        setState(() {
-          //title = t;
-        });
-        return 'SOFAS';
+  // String selectTitle([String title = 'Living Room']) {
+  //   switch (title) {
+  //     case 'SOFAS':
+  //       setState(() {
+  //         //title = t;
+  //       });
+  //       return 'SOFAS';
 
-      case 'TABLE':
-        //title = t;
-        return 'TABLE';
+  //     case 'TABLE':
+  //       //title = t;
+  //       return 'TABLE';
 
-      case 'RUGS':
-        //title = t;
+  //     case 'RUGS':
+  //       //title = t;
 
-        return 'RUGS';
-      case 'DECOR':
-        //title = t;
+  //       return 'RUGS';
+  //     case 'DECOR':
+  //       //title = t;
 
-        return 'DECOR';
+  //       return 'DECOR';
 
-      default:
-        // title = t;
-        return 'Living Room';
-    }
-  }
+  //     default:
+  //       // title = t;
+  //       return 'Living Room';
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class _LivingRoom2State extends State<LivingRoom2>
     //     Provider.of<LivingProcess>(context, listen: false).Products.toList();
     return Scaffold(
       appBar: AppBar(
-        title: Text(selectTitle()),
+        title: Text('Living Room'),
         backgroundColor: Colors.amber[700],
         centerTitle: true,
         actions: [
@@ -88,10 +87,10 @@ class _LivingRoom2State extends State<LivingRoom2>
             isScrollable: true,
             onTap: (value) {},
             tabs: [
-              Tab(height: 55, text: selectTitle('SOFAS')),
-              Tab(height: 55, text: selectTitle('TABLE')),
-              Tab(height: 55, text: selectTitle('RUGS')),
-              Tab(height: 55, text: selectTitle('DECOR')),
+              Tab(height: 55, text: 'SOFAS'),
+              Tab(height: 55, text: 'TABLE'),
+              Tab(height: 55, text: 'RUGS'),
+              Tab(height: 55, text: 'DECOR'),
             ]),
       ),
       body: TabBarView(

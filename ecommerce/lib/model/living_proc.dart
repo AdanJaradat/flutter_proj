@@ -4,162 +4,270 @@ import 'package:flutter/material.dart';
 class LivingProcess extends ChangeNotifier {
   final List<Product> products = [
     Product(
-        name: 'side sofa 1',
+        name: 'sofa#1',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
         imgPath: 'images/sofagrid1.jpg',
-        price: 17.0,
+        price: 170.0,
         room: 'Living Room',
         count: 0,
         category: 'SOFAS'),
     Product(
-        name: 'side sofa 2',
+        name: 'sofa#2',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/bsofa.jpg',
+        price: 150.0,
         room: 'Living Room',
         count: 0,
         category: 'SOFAS'),
     Product(
-        name: 'side sofa 3',
+        name: 'sofa#3',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/rsofa.jpg',
+        price: 200.0,
+        room: 'Living Room',
+        count: 0,
+        category: 'SOFAS'),
+    Product(
+        name: 'sofa#4',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/rrsof.jpg',
+        price: 250.0,
+        room: 'Living Room',
+        count: 0,
+        category: 'SOFAS'),
+    Product(
+        name: 'sofa#5',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/gsof.jpg',
+        price: 300.0,
         room: 'Living Room',
         count: 0,
         category: 'SOFAS'),
     //sofa end
     //table start
     Product(
-        name: 'side table 1',
+        name: 'table#1',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/wtable.jpg',
+        price: 150.0,
         room: 'Living Room',
         count: 0,
         category: 'TABLE'),
     Product(
-        name: 'side table 2',
+        name: 'table#2',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/table1.jpg',
+        price: 100.0,
         room: 'Living Room',
         count: 0,
         category: 'TABLE'),
     Product(
-        name: 'side table 3',
+        name: 'table#3',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/table2.jpg',
+        price: 200.0,
+        room: 'Living Room',
+        count: 0,
+        category: 'TABLE'),
+    Product(
+        name: 'table#4',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/table3.jpg',
+        price: 150.0,
+        room: 'Living Room',
+        count: 0,
+        category: 'TABLE'),
+    Product(
+        name: 'table#5',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/table4.jpg',
+        price: 400.0,
         room: 'Living Room',
         count: 0,
         category: 'TABLE'),
     //table end
     //rugs start
     Product(
-        name: 'side rugs 1',
+        name: 'rug#1',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/rug1.jpg',
+        price: 400.0,
         room: 'Living Room',
         count: 0,
         category: 'RUGS'),
     Product(
-        name: 'side rugs 2',
+        name: 'rug#2',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/rug2.jpg',
+        price: 450.0,
         room: 'Living Room',
         count: 0,
         category: 'RUGS'),
     Product(
-        name: 'side rugs 3',
+        name: 'rug#3',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/rug3.jpg',
+        price: 150.0,
+        room: 'Living Room',
+        count: 0,
+        category: 'RUGS'),
+    Product(
+        name: 'rug#4',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/rug4.jpg',
+        price: 250.0,
+        room: 'Living Room',
+        count: 0,
+        category: 'RUGS'),
+    Product(
+        name: 'rug#5',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/rug5.jpg',
+        price: 300.0,
         room: 'Living Room',
         count: 0,
         category: 'RUGS'),
     //rugs end
     //decor start
     Product(
-        name: 'side decor 1',
+        name: 'decor#1',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
+        imgPath: 'images/acc1.jpg',
         price: 15.0,
         room: 'Living Room',
         count: 0,
         category: 'DECOR'),
     Product(
-        name: 'side decor 2',
+        name: 'decor#2',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
+        imgPath: 'images/acc2.jpg',
+        price: 50.0,
+        room: 'Living Room',
+        count: 0,
+        category: 'DECOR'),
+    Product(
+        name: 'decor#3',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/acc3.jpg',
         price: 15.0,
         room: 'Living Room',
         count: 0,
         category: 'DECOR'),
     Product(
-        name: 'side decor 3',
+        name: 'decor#4',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/acc4.jpg',
+        price: 70.0,
         room: 'Living Room',
         count: 0,
         category: 'DECOR'),
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! out door
     Product(
-        name: 'side decor 3',
+        name: 'umbrella#1',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/umb1.jpg',
+        price: 150.0,
         room: 'Out Door',
         count: 0,
         category: 'UMBRELLAS'),
     Product(
-        name: 'side decor 3',
+        name: 'umbrella#2',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/umb2.jpg',
+        price: 150.0,
         room: 'Out Door',
         count: 0,
         category: 'UMBRELLAS'),
     Product(
-        name: 'side decor 3',
+        name: 'umbrella#3',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
-        price: 15.0,
+        imgPath: 'images/umb3.jpg',
+        price: 150.0,
         room: 'Out Door',
         count: 0,
         category: 'UMBRELLAS'),
     Product(
-        name: 'side decor 3',
+        name: 'plant#1',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
+        imgPath: 'images/plan1.jpg',
         price: 15.0,
+        room: 'Out Door',
+        count: 0,
+        category: 'PLANTS'),
+    Product(
+        name: 'plant#2',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/plan2.jpg',
+        price: 15.0,
+        room: 'Out Door',
+        count: 0,
+        category: 'PLANTS'),
+    Product(
+        name: 'sofa#2',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/osofa1.jpg',
+        price: 150.0,
+        room: 'Out Door',
+        count: 0,
+        category: 'SOFAS'),
+    Product(
+        name: 'sofa#3',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/out.jpg',
+        price: 150.0,
         room: 'Out Door',
         count: 0,
         category: 'SOFAS'),
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! dining room
     Product(
-        name: 'side decor 3',
+        name: 'table#1',
         desc:
             'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
-        imgPath: 'images/sofagrid1.jpg',
+        imgPath: 'images/d1.jpg',
+        price: 200.0,
+        room: 'Dining Room',
+        count: 0,
+        category: 'TABLE'),
+    Product(
+        name: 'table#2',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/d2.jpg',
+        price: 200.0,
+        room: 'Dining Room',
+        count: 0,
+        category: 'TABLE'),
+    Product(
+        name: 'chair#1',
+        desc:
+            'This modern coffee table is the perfect fit for any contemporary living room! With its sleek MDF design, it complements your furniture and décor for a stylish and practical addition to your home. Add a bit of flair with this modern coffee table!',
+        imgPath: 'images/ch1.jpg',
         price: 15.0,
         room: 'Dining Room',
         count: 0,

@@ -33,7 +33,7 @@ class _CartPageState extends State<CartPage> {
                     children: [
                       Container(
                         margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
-                        height: 70,
+                        height: MediaQuery.of(context).size.height * 0.7,
                         child: ListView.builder(
                           itemCount: value.userCart.length,
                           itemBuilder: (context, index) {

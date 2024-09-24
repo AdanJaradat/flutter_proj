@@ -33,129 +33,132 @@ class DataGrid2 extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.85,
                       width: MediaQuery.of(context).size.width,
                       color: const Color.fromARGB(255, 218, 217, 217),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(height: 20),
-                          Image.asset(
-                            data[index].imgPath,
-                            fit: BoxFit.contain,
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            width: MediaQuery.of(context).size.width * 0.5,
-                          ),
-                          const SizedBox(height: 20),
-                          Text(data[index].name),
-                          const SizedBox(height: 20),
-                          Container(
+                      child: Center(
+                        child: ListView(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 20),
+                            Image.asset(
+                              data[index].imgPath,
+                              fit: BoxFit.contain,
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              width: MediaQuery.of(context).size.width * 0.5,
+                            ),
+                            const SizedBox(height: 20),
+                            Center(child: Text(data[index].name)),
+                            const SizedBox(height: 20),
+                            Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 22),
+                                child: Text(data[index].desc)),
+                            const SizedBox(height: 35), //editing
+                            Container(
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 22),
-                              child: Text(data[index].desc)),
-                          const SizedBox(height: 35), //editing
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 22),
-                            child: Row(
-                              children: [
-                                MaterialButton(
-                                  onPressed: () {
-                                    Provider.of<LivingProcess>(context,
-                                            listen: false)
-                                        .addItemToCart(data[index]);
-                                    SnackBar snackBar = SnackBar(
-                                      content: Text('Added Successfully'),
-                                      action: SnackBarAction(
-                                          label: 'Cacel',
-                                          onPressed: () {
-                                            ScaffoldMessenger.of(context)
-                                                .clearSnackBars();
-                                          }),
-                                    );
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(snackBar);
-                                  },
-                                  color: Colors.amber[700],
-                                  child: Text('Add to cart'),
-                                ),
-                                const SizedBox(width: 45),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
+                              child: Row(
+                                children: [
+                                  MaterialButton(
+                                    onPressed: () {
+                                      Provider.of<LivingProcess>(context,
+                                              listen: false)
+                                          .addItemToCart(data[index]);
+                                      SnackBar snackBar = SnackBar(
+                                        content: Text('Added Successfully'),
+                                        action: SnackBarAction(
+                                            label: 'Cacel',
+                                            onPressed: () {
+                                              ScaffoldMessenger.of(context)
+                                                  .clearSnackBars();
+                                            }),
+                                      );
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(snackBar);
+                                    },
                                     color: Colors.amber[700],
+                                    child: Text('Add to cart'),
                                   ),
-                                  child: IconButton(
-                                      onPressed: () {
-                                        // count = Provider.of<LivingProcess>(
-                                        //         context,
-                                        //         listen: false)
-                                        //     .counter(data[index]);
-                                        Provider.of<LivingProcess>(context,
-                                                listen: false)
-                                            .removeFromCounter(data[index]);
-                                        // SnackBar snackBar = SnackBar(
-                                        //   content: Text('Removed Successfully'),
-                                        //   action: SnackBarAction(
-                                        //       label: 'Cacel',
-                                        //       onPressed: () {
-                                        //         ScaffoldMessenger.of(context)
-                                        //             .clearSnackBars();
-                                        //       }),
-                                        // );
-                                        // ScaffoldMessenger.of(context)
-                                        //     .showSnackBar(snackBar);
-                                      },
-                                      icon: Icon(Icons.remove)),
-                                ),
-                                const SizedBox(width: 10),
-                                Consumer<LivingProcess>(
-                                  builder: (context, value, child) {
-                                    return Container(
-                                      width: 50,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                            '${value.counter(data[index])}'),
-                                      ),
-                                    );
-                                  },
-                                  //child: ,
-                                ),
-                                const SizedBox(width: 10),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.amber[700],
+                                  const SizedBox(width: 45),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.amber[700],
+                                    ),
+                                    child: IconButton(
+                                        onPressed: () {
+                                          // count = Provider.of<LivingProcess>(
+                                          //         context,
+                                          //         listen: false)
+                                          //     .counter(data[index]);
+                                          Provider.of<LivingProcess>(context,
+                                                  listen: false)
+                                              .removeFromCounter(data[index]);
+                                          // SnackBar snackBar = SnackBar(
+                                          //   content: Text('Removed Successfully'),
+                                          //   action: SnackBarAction(
+                                          //       label: 'Cacel',
+                                          //       onPressed: () {
+                                          //         ScaffoldMessenger.of(context)
+                                          //             .clearSnackBars();
+                                          //       }),
+                                          // );
+                                          // ScaffoldMessenger.of(context)
+                                          //     .showSnackBar(snackBar);
+                                        },
+                                        icon: Icon(Icons.remove)),
                                   ),
-                                  child: IconButton(
-                                      onPressed: () {
-                                        // count = Provider.of<LivingProcess>(
-                                        //         context,
-                                        //         listen: false)
-                                        //     .counter(data[index]);
-                                        Provider.of<LivingProcess>(context,
-                                                listen: false)
-                                            .addToCounter(data[index]);
-                                        // SnackBar snackBar = SnackBar(
-                                        //   content: Text('Added Successfully'),
-                                        //   action: SnackBarAction(
-                                        //       label: 'Cacel',
-                                        //       onPressed: () {
-                                        //         ScaffoldMessenger.of(context)
-                                        //             .clearSnackBars();
-                                        //       }),
-                                        // );
-                                        // ScaffoldMessenger.of(context)
-                                        //     .showSnackBar(snackBar);
-                                      },
-                                      icon: Icon(Icons.add)),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                                  const SizedBox(width: 10),
+                                  Consumer<LivingProcess>(
+                                    builder: (context, value, child) {
+                                      return Container(
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white,
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                              '${value.counter(data[index])}'),
+                                        ),
+                                      );
+                                    },
+                                    //child: ,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.amber[700],
+                                    ),
+                                    child: IconButton(
+                                        onPressed: () {
+                                          // count = Provider.of<LivingProcess>(
+                                          //         context,
+                                          //         listen: false)
+                                          //     .counter(data[index]);
+                                          Provider.of<LivingProcess>(context,
+                                                  listen: false)
+                                              .addToCounter(data[index]);
+                                          // SnackBar snackBar = SnackBar(
+                                          //   content: Text('Added Successfully'),
+                                          //   action: SnackBarAction(
+                                          //       label: 'Cacel',
+                                          //       onPressed: () {
+                                          //         ScaffoldMessenger.of(context)
+                                          //             .clearSnackBars();
+                                          //       }),
+                                          // );
+                                          // ScaffoldMessenger.of(context)
+                                          //     .showSnackBar(snackBar);
+                                        },
+                                        icon: Icon(Icons.add)),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   });
@@ -191,9 +194,7 @@ class DataGrid2 extends StatelessWidget {
                             onPressed: () {
                               Provider.of<LivingProcess>(context, listen: false)
                                   .addToCounter(data[index]);
-                              // Provider.of<LivingProcess>(context, listen: false)
-                              //     .addItemToCart(data[index]);
-                              //value.addItemToCart(data[index]);
+                            
                               SnackBar snackBar = SnackBar(
                                 content: Text('Added Successfully'),
                                 action: SnackBarAction(
