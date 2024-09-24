@@ -60,9 +60,11 @@ class DataGrid2 extends StatelessWidget {
                                 children: [
                                   MaterialButton(
                                     onPressed: () {
-                                      Provider.of<LivingProcess>(context,
-                                              listen: false)
-                                          .addItemToCart(data[index]);
+                                      //!
+                                      value.addItemToCart(data[index]);
+                                      // Provider.of<LivingProcess>(context,
+                                      //         listen: false)
+                                      //     .addItemToCart(data[index]);
                                       SnackBar snackBar = SnackBar(
                                         content: Text('Added Successfully'),
                                         action: SnackBarAction(
@@ -86,24 +88,11 @@ class DataGrid2 extends StatelessWidget {
                                     ),
                                     child: IconButton(
                                         onPressed: () {
-                                          // count = Provider.of<LivingProcess>(
-                                          //         context,
+                                          value.removeFromCounter(data[index]);
+                                          //!
+                                          // Provider.of<LivingProcess>(context,
                                           //         listen: false)
-                                          //     .counter(data[index]);
-                                          Provider.of<LivingProcess>(context,
-                                                  listen: false)
-                                              .removeFromCounter(data[index]);
-                                          // SnackBar snackBar = SnackBar(
-                                          //   content: Text('Removed Successfully'),
-                                          //   action: SnackBarAction(
-                                          //       label: 'Cacel',
-                                          //       onPressed: () {
-                                          //         ScaffoldMessenger.of(context)
-                                          //             .clearSnackBars();
-                                          //       }),
-                                          // );
-                                          // ScaffoldMessenger.of(context)
-                                          //     .showSnackBar(snackBar);
+                                          //     .removeFromCounter(data[index]);
                                         },
                                         icon: Icon(Icons.remove)),
                                   ),
@@ -133,24 +122,11 @@ class DataGrid2 extends StatelessWidget {
                                     ),
                                     child: IconButton(
                                         onPressed: () {
-                                          // count = Provider.of<LivingProcess>(
-                                          //         context,
+                                          value.addToCounter(data[index]);
+                                          //!
+                                          // Provider.of<LivingProcess>(context,
                                           //         listen: false)
-                                          //     .counter(data[index]);
-                                          Provider.of<LivingProcess>(context,
-                                                  listen: false)
-                                              .addToCounter(data[index]);
-                                          // SnackBar snackBar = SnackBar(
-                                          //   content: Text('Added Successfully'),
-                                          //   action: SnackBarAction(
-                                          //       label: 'Cacel',
-                                          //       onPressed: () {
-                                          //         ScaffoldMessenger.of(context)
-                                          //             .clearSnackBars();
-                                          //       }),
-                                          // );
-                                          // ScaffoldMessenger.of(context)
-                                          //     .showSnackBar(snackBar);
+                                          //     .addToCounter(data[index]);
                                         },
                                         icon: Icon(Icons.add)),
                                   ),
@@ -192,9 +168,11 @@ class DataGrid2 extends StatelessWidget {
                           ),
                           trailing: IconButton(
                             onPressed: () {
-                              Provider.of<LivingProcess>(context, listen: false)
-                                  .addToCounter(data[index]);
-                            
+                              value.addToCounter(data[index]);
+                              //!
+                              // Provider.of<LivingProcess>(context, listen: false)
+                              //     .addToCounter(data[index]);
+
                               SnackBar snackBar = SnackBar(
                                 content: Text('Added Successfully'),
                                 action: SnackBarAction(

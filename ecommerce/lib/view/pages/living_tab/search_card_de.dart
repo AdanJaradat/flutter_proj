@@ -20,7 +20,8 @@ class SearchCardDetails extends StatelessWidget {
         child: Center(
           child: Card(
             margin: EdgeInsets.fromLTRB(12, 12, 12, 12),
-            child: Column(
+            child: ListView(
+              //!column
               children: [
                 Image.asset(
                   args.imgPath,
@@ -28,7 +29,7 @@ class SearchCardDetails extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.5,
                 ),
                 SizedBox(height: 12),
-                Text(args.name),
+                Center(child: Text(args.name)),
                 SizedBox(height: 12),
                 Container(
                     margin: EdgeInsets.symmetric(horizontal: 12),
